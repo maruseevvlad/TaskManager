@@ -9,7 +9,8 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Task {
-    private boolean status;
+    private boolean completed;
+    private TaskStatus status;
     private String title;
     private String description;
     private LocalDateTime deadline;
@@ -27,14 +28,16 @@ public class Task {
         }
         this.deadline = deadline;
         this.priority = priority;
-        this.status = true;
+        this.completed = true;
+        this.status = TaskStatus.IN_PROGRESS;
         this.tags = tags;
     }
 
     @Override
     public String toString() {
         return "Task{" +
-                "status=" + status +
+                "completed=" + completed +
+                ", status=" + status +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", deadline=" + deadline +
