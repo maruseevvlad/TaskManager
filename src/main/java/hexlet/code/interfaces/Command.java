@@ -1,4 +1,4 @@
-package hexlet.code;
+package hexlet.code.interfaces;
 
 public interface Command {
     String getName();

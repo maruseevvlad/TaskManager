@@ -1,7 +1,7 @@
 package hexlet.code;
 
 public enum TaskStatus {
-    TODO,
+    NEW,
     IN_PROGRESS,
     DONE
 }

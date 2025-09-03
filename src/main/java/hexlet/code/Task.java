@@ -16,8 +16,7 @@ public class Task {
     private LocalDateTime deadline;
     private Priority priority;
     @Getter
-    @Setter
-    private static Set<Tag> tags = new HashSet<>();
+    private final Set<Tag> tags;
 
     public Task(String title, String description, LocalDateTime deadline,
                 Priority priority, Set<Tag> tags) {
@@ -29,8 +28,8 @@ public class Task {
         this.deadline = deadline;
         this.priority = priority;
         this.completed = true;
-        this.status = TaskStatus.IN_PROGRESS;
-        this.tags = tags;
+        this.status = TaskStatus.NEW;
+        this.tags = new HashSet<>(tags);
     }
 
     @Override
@@ -42,10 +41,11 @@ public class Task {
                 ", description='" + description + '\'' +
                 ", deadline=" + deadline +
                 ", priority=" + priority +
-                ", tags=" + (Task.getTags() != null ? Task.getTags().stream()
-                .map(tag -> "#" + tag.getName())
-                .collect((Collectors.joining(", "))) :
+                ", tags=" + (tags != null ? tags.stream()
+                .map(Tag::toString)
+                .collect(Collectors.joining(", ")) :
                 "нет тэга") +
                 '}';
+
     }
 }

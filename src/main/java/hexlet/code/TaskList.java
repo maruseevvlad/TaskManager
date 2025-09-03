@@ -1,9 +1,11 @@
 package hexlet.code;
 
+import hexlet.code.interfaces.TaskRepository;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class TaskList implements TaskRepository{
+public class TaskList implements TaskRepository {
     private static final List<Task> tasks = new ArrayList<>();
 
     public void addTask(Task task) {

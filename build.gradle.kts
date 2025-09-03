@@ -18,6 +18,7 @@ application {
 }
 
 dependencies {
+    implementation("com.mysql:mysql-connector-j:9.4.0")
     implementation(libs.guava)
     testImplementation(platform(libs.junit.bom))
     testImplementation(libs.junit.jupiter)

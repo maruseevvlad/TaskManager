@@ -1,4 +1,6 @@
-package hexlet.code;
+package hexlet.code.interfaces;
+
+import hexlet.code.Task;
 
 import java.util.List;
 

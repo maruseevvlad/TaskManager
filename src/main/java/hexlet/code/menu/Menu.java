@@ -1,4 +1,6 @@
-package hexlet.code;
+package hexlet.code.menu;
+
+import hexlet.code.interfaces.Command;
 
 import java.util.*;
 
@@ -12,8 +14,7 @@ public class Menu {
     }
 
     public void run() {
-        int choice;
-        do {
+        while (true) {
             System.out.println("\n=== TaskMaster Pro ===");
             for (int i = 0; i < commands.size(); i++) {
                 System.out.println((i + 1) + ". " + commands.get(i).getName());
@@ -22,7 +23,7 @@ public class Menu {
 
             try {
                 System.out.print("Выбор: ");
-                choice = Integer.parseInt(scanner.nextLine());
+                int choice = Integer.parseInt(scanner.nextLine());
 
                 if (choice == 0) {
                     System.out.println("До свидания!");
@@ -35,10 +36,8 @@ public class Menu {
                 }
             } catch (NumberFormatException e) {
                 System.out.println("Введите число, пожалуйста.");
-                choice = -1; // чтобы цикл не завершился
             }
-
-        } while (true);
+        }
     }
 }
 

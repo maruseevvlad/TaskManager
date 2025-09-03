@@ -1,4 +1,4 @@
-package hexlet.code;
+package hexlet.code.interfaces;
 
 import java.util.Comparator;
 
