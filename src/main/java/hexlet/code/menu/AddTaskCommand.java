@@ -5,7 +5,6 @@ import hexlet.code.Tag;
 import hexlet.code.Task;
 import hexlet.code.TaskStatus;
 import hexlet.code.interfaces.Command;
-import hexlet.code.interfaces.TaskRepository;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -19,11 +18,9 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class AddTaskCommand implements Command {
-    private final TaskRepository repository;
     private final Scanner scanner;
 
-    public AddTaskCommand(TaskRepository repository, Scanner scanner) {
-        this.repository = repository;
+    public AddTaskCommand(Scanner scanner) {
         this.scanner = scanner;
     }
 
@@ -103,10 +100,6 @@ public class AddTaskCommand implements Command {
                 }
 
             }
-
-            Task task = new Task(title, description, deadline, priority, Set.of(new Tag("работа")));
-            repository.addTask(task);
-            System.out.println("Задача добавлена: " + task);
 
         } catch (Exception e) {
             System.out.println("Ошибка при создании задачи: " + e.getMessage());

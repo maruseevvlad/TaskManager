@@ -42,6 +42,9 @@ public class DeleteTaskCommand implements Command {
                     properties.getProperty("password"));
                  PreparedStatement pstmt = connection.prepareStatement(sql)) {
 
+                ShowTaskCommand showTasksCommand = new ShowTaskCommand(scanner);
+                showTasksCommand.execute();
+
                 System.out.print("Введите ID задачи для удаления: ");
                 int id = scanner.nextInt();
                 scanner.nextLine();
